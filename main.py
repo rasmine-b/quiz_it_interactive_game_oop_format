@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from data import DataManager
-from quiz import QuizLogic
+from take_quiz import QuizApp
 from main_window import MainWindow
 from difficulty import DifficultySelector
 from category import CategoryRandomizer
@@ -27,7 +27,7 @@ class QuizApp:
         for widget in self.window.winfo_children():
             widget.destroy()
         
-        self.quiz_logic = QuizLogic(self.window, self.questions_data)
+        self.quiz_logic = QuizApp(self.window, self.questions_data)
     
     def start_game(self):
         self.window.after(2000, self.show_difficulty_selection)
@@ -90,7 +90,7 @@ class QuizApp:
         for widget in self.window.winfo_children():
             widget.destroy()
 
-        QuizLogic(self.window, self.questions_data)
+        QuizApp(self.window, self.questions_data)
 
     def exit_game(self):
         self.window.quit()
@@ -98,5 +98,5 @@ class QuizApp:
 if __name__ == "__main__":
     root = tk.Tk()
     root.geometry("800x600")
-    app = QuizApp(root)
+    app = QuizLogic(root)
     root.mainloop()

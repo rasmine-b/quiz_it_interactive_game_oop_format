@@ -5,10 +5,13 @@ Correct Answer:
 
 Category: Science
 Question: What planet do we live on?
-Mars
-Jupiter
-Earth
-Venus
+Correct Answer: 
+
+Question: What is H2O
+salt
+sugar
+water
+air
 Correct Answer: c
 
 Category: Movies
