@@ -10,4 +10,7 @@ class CategoryRandomizer:
         self.randomizing_active = True
 
         self.display_randomizing_ui()
-        
+    
+    def clear_window(self):
+        for widget in self.window.winfo_children():
+            widget.destroy()
