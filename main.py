@@ -60,3 +60,9 @@ class QuizApp:
 
     def exit_game(self):
         self.window.quit()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    root.geometry("800x600")
+    app = QuizApp(root)
+    root.mainloop()
