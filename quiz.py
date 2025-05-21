@@ -12,3 +12,10 @@ class QuizLogic:
     
     def get_available_categories(self, difficulty):
         return [cat for cat, qs in self.questions_data.get(difficulty, {}).items() if qs]
+
+    def add_question(self, difficulty, category, question, choices, correct_answer):
+        self.questions_data[difficulty][category].append({
+            "question": question,
+            "choices": choices,
+            "correct_answer": correct_answer
+        })
