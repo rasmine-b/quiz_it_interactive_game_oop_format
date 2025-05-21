@@ -70,3 +70,9 @@ class QuizLogic:
 
         close_btn = tk.Button(self.frame, text="Close", command=self.frame.destroy)
         close_btn.pack(pady=10)
+        
+        close_btn = tk.Button(self.frame, text="Close", command=self.frame.destroy)
+        close_btn.pack(pady=10)
+
+    def return_to_main(self):
+        self.frame.destroy()
