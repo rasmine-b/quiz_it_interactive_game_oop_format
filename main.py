@@ -54,3 +54,9 @@ class QuizApp:
         self.quiz_logic.add_question(difficulty, category, question, choices, correct)
         self.data_manager.save_questions(self.quiz_logic.questions_data)
         self.show_main_window()
+
+    def show_saved_quiz(self):
+        print("Show saved quiz logic here")
+
+    def exit_game(self):
+        self.window.quit()
