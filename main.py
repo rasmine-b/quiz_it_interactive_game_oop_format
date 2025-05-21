@@ -34,7 +34,7 @@ class QuizApp:
         )
 
     def show_category_randomizer(self, difficulty):
-        categories = self.quiz_logic.get_categories(difficulty)
+        categories = list(self.questions_data.get(difficulty, {}).keys())
         CategoryRandomizer(
             self.window,
             categories,
@@ -71,8 +71,10 @@ class QuizApp:
             messagebox.showinfo("No Questions", "No saved questions available.")
             self.show_main_window()
             return
-
     
+        for widget in self.window.winfo_children():
+            widget.destroy()
+
         QuizLogic(self.window, self.questions_data)
 
     def exit_game(self):
