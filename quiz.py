@@ -10,3 +10,5 @@ class QuizLogic:
     def get_categories(self, difficulty):
         return list(self.questions.get(difficulty, {}).keys())
     
+    def get_available_categories(self, difficulty):
+        return [cat for cat, qs in self.questions_data.get(difficulty, {}).items() if qs]
