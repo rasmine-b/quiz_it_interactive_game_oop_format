@@ -3,6 +3,7 @@ from data import DataManager
 from quiz import QuizLogic
 from main_window import MainWindow
 from difficulty import DifficultySelector
+from category import CategoryRandomizer
 
 class QuizApp:
     def __init__(self, window):
@@ -29,4 +30,13 @@ class QuizApp:
             self.window,
             on_difficulty_selected=self.show_category_randomizer,
             on_exit=self.exit_game
+        )
+
+    def show_category_randomizer(self, difficulty):
+        categories = self.quiz_logic.get_categories(difficulty)
+        CategoryRandomizer(
+            self.window,
+            categories,
+            difficulty,
+            on_category_chosen=self.start_question_input
         )
