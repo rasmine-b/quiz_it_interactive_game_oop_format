@@ -19,3 +19,6 @@ class QuizLogic:
             "choices": choices,
             "correct_answer": correct_answer
         })
+
+    def check_answer(self, selected, correct):
+        return selected == correct
