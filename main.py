@@ -12,7 +12,6 @@ class QuizApp:
         self.window = window
         self.data_manager = DataManager()
         self.questions_data, self.original_total_questions = self.data_manager.load_questions()
-        self.quiz_logic = QuizLogic(self.questions_data)
 
         self.show_main_window()
     
@@ -68,7 +67,13 @@ class QuizApp:
             self.show_main_window()
 
     def show_saved_quiz(self):
-        print("Show saved quiz logic here")
+        if not any(q for level in self.questions_data.values() for cat in level.values() for q in cat):
+            messagebox.showinfo("No Questions", "No saved questions available.")
+            self.show_main_window()
+            return
+
+    
+        QuizLogic(self.window, self.questions_data)
 
     def exit_game(self):
         self.window.quit()

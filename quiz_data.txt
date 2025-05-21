@@ -1,14 +1,42 @@
 Difficulty Level: Easy
+Category: Food and Drinks
+Question: What do bees make?
+Correct Answer: 
+
+Category: Movies
+Question: What disney movie features a lion named simba?
+bambi
+lion king
+tarzan
+jungle book
+Correct Answer: b
+
+Category: Pop Culture
+Question: What color is SpongeBob SquarePants?
+Correct Answer: 
+
 Category: History
 Question: Who was the first president of United States?
 Correct Answer: 
 
 Question: Which country built Great Wall?
-Japan
-China
-India
-Egypt
-Correct Answer: b
+Correct Answer: 
 
 Difficulty Level: Medium
+Category: Food and Drinks
+Question: What is the name of the fungus used to make bread rise?
+Correct Answer: 
+
+Category: Science
+Question: What gas do plants absorb from the atmosphere to make food?
+Correct Answer: 
+
 Difficulty Level: Hard
+Category: Food and Drinks
+Question: Which vitamin is most abundant in an orange?
+Correct Answer: 
+
+Category: Science
+Question: What particle has a negative electric charge?
+Correct Answer: 
+
