@@ -4,6 +4,7 @@ from quiz import QuizLogic
 from main_window import MainWindow
 from difficulty import DifficultySelector
 from category import CategoryRandomizer
+from questions import QuestionInput
 
 class QuizApp:
     def __init__(self, window):
@@ -40,3 +41,16 @@ class QuizApp:
             difficulty,
             on_category_chosen=self.start_question_input
         )
+    
+    def start_question_input(self, difficulty, category):
+        QuestionInput(
+            self.window,
+            difficulty,
+            category,
+            on_done=self.save_question
+        )
+
+    def save_question(self, question, choices, correct, difficulty, category):
+        self.quiz_logic.add_question(difficulty, category, question, choices, correct)
+        self.data_manager.save_questions(self.quiz_logic.questions_data)
+        self.show_main_window()
