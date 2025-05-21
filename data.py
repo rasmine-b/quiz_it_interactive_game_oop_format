@@ -36,5 +36,7 @@ class DataManager:
                         "correct_answer": correct_answer
                     })
                     original_total_questions += 1
+                index += 1
         except FileNotFoundError:
-            lines = []
+            pass
+        return questions_data, original_total_questions
