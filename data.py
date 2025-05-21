@@ -40,3 +40,15 @@ class DataManager:
         except FileNotFoundError:
             pass
         return questions_data, original_total_questions
+    def save_questions(self, questions_data):
+        with open(self.filename, "w") as file:
+            for difficulty, categories in questions_data.items():
+                file.write(f"Difficulty Level: {difficulty}\n")
+                for category, questions in categories.items():
+                    if questions:
+                        file.write(f"Category: {category}\n")
+                        for q in questions:
+                            file.write(f"Question: {q['question']}\n")
+                            for choice in q['choices']:
+                                file.write(f"{choice}\n")
+                            file.write(f"Correct Answer: {q['correct_answer']}\n\n")
