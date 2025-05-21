@@ -6,7 +6,7 @@ class CategoryRandomizer:
         self.window = window
         self.categories = categories
         self.difficulty = difficulty
-        self.on_category_chosen = on_category_choosen
+        self.on_category_chosen = on_category_chosen
         self.randomizing_active = True
 
         self.display_randomizing_ui()
