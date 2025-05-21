@@ -2,7 +2,7 @@ import tkinter as tk
 import random
 
 class CategoryRandomizer:
-    def __init__(self, window, categories, difficulty, on_category_choosen):
+    def __init__(self, window, categories, difficulty, on_category_chosen):
         self.window = window
         self.categories = categories
         self.difficulty = difficulty
