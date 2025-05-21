@@ -7,5 +7,21 @@ c = dog
 d = lemon
 Correct Answer: a
 
+Category: Literature
+Question: Who wrote Romeo and Juliet?
+a = J.K. Rowling
+b = Dr. Seuss
+c = William Shakespeare
+d = Ronald Dahl
+Correct Answer: c
+
 Difficulty Level: Medium
+Category: Pop Culture
+Question: Who sings the hit song Shake It Off?
+a = Ariana Grande
+b = Taylor Swift
+c = Katy Pery
+d = Billie Eilish
+Correct Answer: b
+
 Difficulty Level: Hard
