@@ -22,7 +22,13 @@ class QuizApp:
             on_exit=self.exit_game,
             on_saved_quiz=self.show_saved_quiz
         )
-
+    def start_quiz(self):
+        
+        for widget in self.window.winfo_children():
+            widget.destroy()
+        
+        self.quiz_logic = QuizLogic(self.window, self.questions_data)
+    
     def start_game(self):
         self.window.after(2000, self.show_difficulty_selection)
 
@@ -56,9 +62,18 @@ class QuizApp:
             self.show_difficulty_selection()
             return
 
-        # Save the question
-        self.quiz_logic.add_question(difficulty, category, question, choices, correct)
-        self.data_manager.save_questions(self.quiz_logic.questions_data)
+        if difficulty not in self.questions_data:
+            self.questions_data[difficulty] = {}
+        if category not in self.questions_data[difficulty]:
+            self.questions_data[difficulty][category] = []
+
+        self.questions_data[difficulty][category].append({
+        "question": question,
+        "choices": choices,
+        "correct_answer": correct
+        })
+
+        self.data_manager.save_questions(self.questions_data)
 
         answer = messagebox.askyesno("Add Another?", "Do you want to add another question?")
         if answer:

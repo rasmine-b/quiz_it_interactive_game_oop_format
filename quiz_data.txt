@@ -3,13 +3,17 @@ Category: Food and Drinks
 Question: What do bees make?
 Correct Answer: 
 
+Category: Science
+Question: What planet do we live on?
+Mars
+Jupiter
+Earth
+Venus
+Correct Answer: c
+
 Category: Movies
 Question: What disney movie features a lion named simba?
-bambi
-lion king
-tarzan
-jungle book
-Correct Answer: b
+Correct Answer: 
 
 Category: Pop Culture
 Question: What color is SpongeBob SquarePants?
