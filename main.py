@@ -2,6 +2,7 @@ import tkinter as tk
 from data import DataManager
 from quiz import QuizLogic
 from main_window import MainWindow
+from difficulty import DifficultySelector
 
 class QuizApp:
     def __init__(self, window):
@@ -18,4 +19,14 @@ class QuizApp:
             on_start=self.start_game,
             on_exit=self.exit_game,
             on_saved_quiz=self.show_saved_quiz
+        )
+
+    def start_game(self):
+        self.window.after(2000, self.show_difficulty_selection)
+
+    def show_difficulty_selection(self):
+        DifficultySelector(
+            self.window,
+            on_difficulty_selected=self.show_category_randomizer,
+            on_exit=self.exit_game
         )
