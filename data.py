@@ -29,7 +29,12 @@ class DataManager:
                         index += 1
                     correct_answer = ""
                     if index < len(lines) and lines[index].strip().startswith("Correct Answer:"):
-                        correct_answer = lines[index].strip().split(": ")[1]
+                        parts = lines[index].strip().split(": ", 1)
+                        if len(parts) == 2:
+                            correct_answer = parts[1]
+                        else:
+                            print(f"[Warning] Malformed correct answer line: {lines[index]}")
+
                     questions_data[current_difficulty][current_category].append({
                         "question": question,
                         "choices": choices,
