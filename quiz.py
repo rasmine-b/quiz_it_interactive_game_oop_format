@@ -43,12 +43,14 @@ class QuizLogic:
         self.var = tk.StringVar()
 
         for choice in q["choices"]:
-            # Each choice is something like 'a = Choice text'
-            label, text = choice.split("=", 1)
-            label = label.strip()
-            text = text.strip()
+            parts = choice.split("=", 1)
+            if len(parts) < 2:
+                label = choice.strip() 
+                text = choice.strip()
+            else:
+                label, text = parts[0].strip(), parts[1].strip()
             rb = tk.Radiobutton(self.frame, text=text, variable=self.var, value=label)
-            rb.pack(anchor="w")
+            rb.pack(anchor="west")
 
         submit_btn = tk.Button(self.frame, text="Submit", command=self.check_answer)
         submit_btn.pack(pady=10)
@@ -70,9 +72,10 @@ class QuizLogic:
 
         close_btn = tk.Button(self.frame, text="Close", command=self.frame.destroy)
         close_btn.pack(pady=10)
-        
-        close_btn = tk.Button(self.frame, text="Close", command=self.frame.destroy)
-        close_btn.pack(pady=10)
 
-    def return_to_main(self):
+
+
+    def end_quiz(self):
         self.frame.destroy()
+        if self.on_quiz_end:
+            self.on_quiz_end()
