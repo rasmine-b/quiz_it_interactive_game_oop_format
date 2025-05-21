@@ -22,7 +22,14 @@ class CategoryRandomizer:
         self.update_category()
         self.window.after(2000, self.finish_randomizing)
 
-    
+    def update_category(self):
+        if self.randomizing_active:
+            self.selected_category = random.choice(self.categories)
+            self.category_box.config(text=self.selected_category)
+            random_color = random.choice(["#FF6347", "#90EE90", "#FFFB8F", "#FCE0D6", "#F88379"])
+            self.window.config(bg=random_color)
+            self.window.after(100, self.update_category)
+            
     def clear_window(self):
         for widget in self.window.winfo_children():
             widget.destroy()
