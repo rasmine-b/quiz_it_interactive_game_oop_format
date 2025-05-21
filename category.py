@@ -29,7 +29,17 @@ class CategoryRandomizer:
             random_color = random.choice(["#FF6347", "#90EE90", "#FFFB8F", "#FCE0D6", "#F88379"])
             self.window.config(bg=random_color)
             self.window.after(100, self.update_category)
-            
+    
+    def finish_randomizing(self):
+        self.randomizing_active = False
+        self.category_box.config(fg="#FFFFFF", bg="#FFFB8F", text=self.selected_category)
+
+        category_label = tk.Label(self.window, text=f"Final Category: {self.selected_category}", font=("Comic Sans MS", 40, "bold"),
+                              fg="#FF6347", bg="#FCE0D6")
+        category_label.pack(pady=50)
+
+        self.window.after(2000, lambda: self.on_category_chosen(self.difficulty, self.selected_category))
+
     def clear_window(self):
         for widget in self.window.winfo_children():
             widget.destroy()
