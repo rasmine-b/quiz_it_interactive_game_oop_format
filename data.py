@@ -11,5 +11,15 @@ class DataManager:
         try:
             with open(self.filename, "r") as file:
                 lines = file.readlines()
+            current_difficulty = ""
+            current_category = ""
+            index = 0
+            while index < len(lines):
+                line = lines[index].strip()
+                if line.startswith("Difficulty Level: "):
+                    current_difficulty = line.split(": ")[1]
+                elif line.startswith("Category: "):
+                    current_category = line.split(": ")[1]
+                index += 1
         except FileNotFoundError:
             lines = []
