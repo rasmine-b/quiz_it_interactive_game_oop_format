@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from data import DataManager
 from quiz import QuizLogic
 from main_window import MainWindow
@@ -47,16 +48,24 @@ class QuizApp:
             self.window,
             difficulty,
             category,
-            on_done=self.save_question,
-            on_finish=self.after_question_input_finish
+            on_done=self.handle_question_input_done
         )
 
-    def save_question(self, question, choices, correct, difficulty, category):
+    
+    def handle_question_input_done(self, question, choices, correct, difficulty, category):
+        if question is None:
+            self.show_difficulty_selection()
+            return
+
+        # Save the question
         self.quiz_logic.add_question(difficulty, category, question, choices, correct)
         self.data_manager.save_questions(self.quiz_logic.questions_data)
-    
-    def after_question_input_finish(self):
-        self.show_difficulty_selection()
+
+        answer = messagebox.askyesno("Add Another?", "Do you want to add another question?")
+        if answer:
+            self.show_difficulty_selection()
+        else:
+            self.show_main_window()
 
     def show_saved_quiz(self):
         print("Show saved quiz logic here")
