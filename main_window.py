@@ -8,3 +8,7 @@ class MainWindow:
         self.on_exit = on_exit
         self.on_saved_quiz = on_saved_quiz
         self.setup_main_screen()
+
+    def clear_window(self):
+        for widget in self.window.winfo_children():
+            widget.destroy()
