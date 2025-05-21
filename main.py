@@ -7,7 +7,7 @@ from difficulty import DifficultySelector
 from category import CategoryRandomizer
 from questions import QuestionInput
 
-class QuizApp:
+class QuizLogic:
     def __init__(self, window):
         self.window = window
         self.data_manager = DataManager()
