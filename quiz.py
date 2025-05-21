@@ -22,3 +22,7 @@ class QuizLogic:
 
     def check_answer(self, selected, correct):
         return selected == correct
+    
+    def reset_score(self):
+        self.score_correct = 0
+        self.score_total = 0
