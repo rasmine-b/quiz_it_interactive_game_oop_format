@@ -47,13 +47,16 @@ class QuizApp:
             self.window,
             difficulty,
             category,
-            on_done=self.save_question
+            on_done=self.save_question,
+            on_finish=self.after_question_input_finish
         )
 
     def save_question(self, question, choices, correct, difficulty, category):
         self.quiz_logic.add_question(difficulty, category, question, choices, correct)
         self.data_manager.save_questions(self.quiz_logic.questions_data)
-        self.show_main_window()
+    
+    def after_question_input_finish(self):
+        self.show_difficulty_selection()
 
     def show_saved_quiz(self):
         print("Show saved quiz logic here")

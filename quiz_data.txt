@@ -1,10 +1,13 @@
 Difficulty Level: Easy
 Category: History
 Question: Who was the first president of United States?
-Abraham Lincoln
-George Washington
-Thomas Jefferson
-John Adams
+Correct Answer: 
+
+Question: Which country built Great Wall?
+Japan
+China
+India
+Egypt
 Correct Answer: b
 
 Difficulty Level: Medium
