@@ -20,6 +20,21 @@ class DataManager:
                     current_difficulty = line.split(": ")[1]
                 elif line.startswith("Category: "):
                     current_category = line.split(": ")[1]
-                index += 1
+                if line.startswith("Question: "):
+                    question = line.split(": ", 1)[1]
+                    index += 1
+                    choices = []
+                    while index < len(lines) and lines[index].strip().startswith(('a =', 'b =', 'c =', 'd =')):
+                        choices.append(lines[index].strip())
+                        index += 1
+                    correct_answer = ""
+                    if index < len(lines) and lines[index].strip().startswith("Correct Answer:"):
+                        correct_answer = lines[index].strip().split(": ")[1]
+                    questions_data[current_difficulty][current_category].append({
+                        "question": question,
+                        "choices": choices,
+                        "correct_answer": correct_answer
+                    })
+                    original_total_questions += 1
         except FileNotFoundError:
             lines = []
