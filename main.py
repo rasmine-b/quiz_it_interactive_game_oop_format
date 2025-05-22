@@ -82,7 +82,7 @@ class QuizLogic:
             self.show_main_window()
 
     def show_saved_quiz(self):
-        if not any(q for level in self.questions_data.values() for cat in level.values() for q in cat):
+        if not any(question for level in self.questions_data.values() for cat in level.values() for question in cat):
             messagebox.showinfo("No Questions", "No saved questions available.")
             self.show_main_window()
             return
