@@ -7,6 +7,13 @@ c = dog
 d = lemon
 Correct Answer: a
 
+Question: What fruit is yellow and curved?
+a = Apple
+b = Banana
+c = Lemon
+d = Mango
+Correct Answer: b
+
 Category: Literature
 Question: Who wrote Romeo and Juliet?
 a = J.K. Rowling
