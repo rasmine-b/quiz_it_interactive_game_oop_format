@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import string
 
 class QuizApp:
     def __init__(self, window, questions_data):
@@ -100,34 +101,36 @@ class QuizApp:
                  bg="#FCE0D6", wraplength=700).pack(pady=20)
 
         self.buttons = []
-        correct_answer = quiz["correct_answer"]
+        correct_answer = quiz["correct_answer"].lower()
 
-        def check_answer(selected):
+        letters = string.ascii_lowercase
+        labeled_choices = [f"{letters[index]} = {choice}" for index, choice in enumerate(quiz["choices"])]
+        
+        def check_answer(selected_letter):
             for btn in self.buttons:
                 btn.config(state="disabled")
                 if btn["text"].startswith(f"{correct_answer} ="):
                     btn.config(bg="#90EE90", fg="black")  # green correct
-                elif btn["text"].startswith(f"{selected} ="):
+                elif btn["text"].startswith(f"{selected_letter} ="):
                     btn.config(bg="#FF6347", fg="white")  # red wrong
                 else:
                     btn.config(bg="#FFFB8F", fg="#FF6347")  # yellow others
 
-            if selected == correct_answer:
+            if selected_letter == correct_answer:
                 self.score["correct"] += 1
 
-            # Remove answered question
             self.quiz_data.pop(self.idx)
 
             self.window.after(2000, self.show_question)
 
-        for choice in quiz["choices"]:
-            key, val = choice.split(" = ")
-            btn = tk.Button(self.window, text=choice, font=("Comic Sans MS", 16), width=40,
+
+        for labeled_choice in labeled_choices:
+            letter, val = labeled_choice.split(" = ")
+            btn = tk.Button(self.window, text=labeled_choice, font=("Comic Sans MS", 16), width=40,
                             bg="#FFFB8F", fg="#FF6347",
-                            command=lambda ky=key: check_answer(ky))
+                            command=lambda ky=letter: check_answer(ky))
             btn.pack(pady=5)
             self.buttons.append(btn)
-
     def show_overall_score(self):
         self.clear_window()
         self.window.config(bg="#FCE0D6")
